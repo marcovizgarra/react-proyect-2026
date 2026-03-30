@@ -1,0 +1,8 @@
+- npm create vite@latest:
+    Crear un proyecto en React con el empaquetador Vite
+
+- nvm use XX.XX.XX:
+    Utilizar una versión de node específica en el proyecto
+
+- nvm ls:
+    Mustra la lista de las versiones de node instaladas (sólo las que estén instaladas podrán ser utilizadas)
