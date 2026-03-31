@@ -1,13 +1,19 @@
 {
   "name": "coder-react-2026",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "license": "ISC",
+  "author": "",
   "type": "module",
+  "main": "eslint.config.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build-css": "node-sass --include-path scss src/sass/main.scss src/css/main.css",
+    "watch-css": "sass --watch src/sass/main.scss src/css/main.css"
   },
   "dependencies": {
     "react": "^19.2.4",
