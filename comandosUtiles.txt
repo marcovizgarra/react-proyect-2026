@@ -5,4 +5,7 @@
     Utilizar una versión de node específica en el proyecto
 
 - nvm ls:
-    Mustra la lista de las versiones de node instaladas (sólo las que estén instaladas podrán ser utilizadas)
+    Muestra la lista de las versiones de node instaladas (sólo las que estén instaladas podrán ser utilizadas)
+
+- git checkout -b XXXX
+    Crea una nueva rama de git
