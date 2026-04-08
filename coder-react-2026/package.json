@@ -13,15 +13,13 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "build-css": "node-sass --include-path scss src/sass/main.scss src/css/main.css",
-    "watch-css": "sass --watch src/sass/main.scss src/css/main.css"
+    "watch-css": "sass --watch src/sass:src/css"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.2.2",
     "bootstrap": "^5.3.8",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "sass": "^1.99.0",
-    "tailwindcss": "^4.2.2"
+    "sass": "^1.99.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
