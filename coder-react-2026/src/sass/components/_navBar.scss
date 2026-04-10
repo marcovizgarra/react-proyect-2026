@@ -1,0 +1,126 @@
+nav {
+    background-color: #1d1b1b;
+
+    ul {
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        li {
+            height: 50px;
+
+            &:first-child {
+                margin-right: auto;
+            }
+
+            &:hover {
+                background-color: #b80b0b;
+            }
+
+            a {
+                height: 100%;
+                padding: 0 30px;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                color: white;
+            }
+
+            .menuBtn {
+                width: 100%;
+                height: 100%;
+                padding: 0 30px;
+                background-color: rgba(0, 0, 0, 0);
+                border: none;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #b80b0b;
+                }
+            }
+        }
+
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        z-index: 99;
+        background-color: rgba(29, 27, 27, 0.78);
+        backdrop-filter: blur(10px);
+        box-shadow: -10px 0 10px rgba(31, 31, 31, 0.733);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        li {
+            width: 100%;
+            transform: scale(1);
+            transition: transform 0.25s ease, opacity 0.25s ease;
+
+            &:first-child {
+                height: 60px;
+                background: none;
+            }
+
+            &:not(:first-child):hover {
+                background: linear-gradient(90deg,
+                        rgba(184, 11, 11, 0) 0%,
+                        rgba(184, 11, 11, 0.65) 51%,
+                        rgba(184, 11, 11, 1) 100%);
+                transform: scale(1.08);
+            }
+
+            .sidebarTop {
+                width: 100%;
+                height: 100%;
+                display: flex;
+
+                img {
+                    padding: 10px 30px 10px 30px;
+                }
+
+                .sidebarBtn {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0 30px;
+                    background-color: rgba(0, 0, 0, 0);
+                    border: none;
+                    cursor: pointer;
+                    padding: 0;
+                    display: flex;
+                    justify-content: flex-end;
+                    transform: scale(1);
+                    transition: transform 0.25s ease, opacity 0.25s ease;
+
+                    &:hover {
+                        transform: scale(1.08);
+                        opacity: 0.8;
+                    }
+
+                    img {
+                        width: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 800px){
+        .hideOnMobile{
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 400px){
+        .sidebar{
+            width: 100%;
+        }
+    }
+}
