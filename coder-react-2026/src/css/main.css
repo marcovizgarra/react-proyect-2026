@@ -1,3 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+* {
+  font-family: "Bebas Neue", sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  min-height: 100vh;
+  background-image: url("/gymBg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav {
+  background-color: #1d1b1b;
+}
+nav ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav ul li {
+  height: 50px;
+}
+nav ul li:first-child {
+  margin-right: auto;
+}
+nav ul li:hover {
+  background-color: #b80b0b;
+}
+nav ul li a {
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+nav ul li .menuBtn {
+  width: 100%;
+  height: 100%;
+  padding: 0 30px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+}
+nav ul li .menuBtn:hover {
+  background-color: #b80b0b;
+}
+nav .sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 99;
+  background-color: rgba(29, 27, 27, 0.78);
+  backdrop-filter: blur(10px);
+  box-shadow: -10px 0 10px rgba(31, 31, 31, 0.733);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+nav .sidebar li {
+  width: 100%;
+  transform: scale(1);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+nav .sidebar li:first-child {
+  height: 60px;
+  background: none;
+}
+nav .sidebar li:not(:first-child):hover {
+  background: linear-gradient(90deg, rgba(184, 11, 11, 0) 0%, rgba(184, 11, 11, 0.65) 51%, rgb(184, 11, 11) 100%);
+  transform: scale(1.08);
+}
+nav .sidebar li .sidebarTop {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+nav .sidebar li .sidebarTop img {
+  padding: 10px 30px 10px 30px;
+}
+nav .sidebar li .sidebarTop .sidebarBtn {
+  width: 100%;
+  height: 100%;
+  padding: 0 30px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  transform: scale(1);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+nav .sidebar li .sidebarTop .sidebarBtn:hover {
+  transform: scale(1.08);
+  opacity: 0.8;
+}
+nav .sidebar li .sidebarTop .sidebarBtn img {
+  width: 24px;
+}
+@media only screen and (max-width: 800px) {
+  nav .hideOnMobile {
+    display: none;
+  }
+}
+@media only screen and (max-width: 400px) {
+  nav .sidebar {
+    width: 100%;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
