@@ -11,11 +11,11 @@ const NavBar = () => {
             <nav>
                 <ul>
                     <li><a href="">LOGO</a></li>
-                    <li><a href="">Planes</a></li>
-                    <li><a href="">Sobre nosotros</a></li>
-                    <li><a href="">Socios</a></li>
+                    <li className='hideOnMobile'><a href="">Planes</a></li>
+                    <li className='hideOnMobile'><a href="">Sobre nosotros</a></li>
+                    <li className='hideOnMobile'><a href="">Socios</a></li>
                     <li>
-                        <button onClick={() => setCollapsed(!collapsed)}>
+                        <button onClick={() => setCollapsed(!collapsed)} className='menuBtn'>
                             <img src={menuBtn} alt="menu-button" />
                         </button>
                     </li>
@@ -24,9 +24,9 @@ const NavBar = () => {
                 {!collapsed && (
                     <ul className='sidebar'>
                         <li>
-                            <div>
-                                <img src={redWhiteLogo} alt="sportlife-logo" />
-                                <button onClick={() => setCollapsed(!collapsed)}>
+                            <div className='sidebarTop'>
+                                <img src={redWhiteLogo} alt="sportlife-logo"/>
+                                <button onClick={() => setCollapsed(!collapsed)} className='sidebarBtn'>
                                     <img src={closeBtn} alt="close-button" />
                                 </button>
                             </div>

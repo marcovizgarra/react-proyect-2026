@@ -15,6 +15,10 @@ nav {
                 margin-right: auto;
             }
 
+            &:hover {
+                background-color: #b80b0b;
+            }
+
             a {
                 height: 100%;
                 padding: 0 30px;
@@ -22,18 +26,16 @@ nav {
                 display: flex;
                 align-items: center;
                 color: white;
-                &:hover {
-                    background-color: #b80b0b;
-                }
             }
 
-            button {
+            .menuBtn {
                 width: 100%;
                 height: 100%;
                 padding: 0 30px;
                 background-color: rgba(0, 0, 0, 0);
                 border: none;
                 cursor: pointer;
+
                 &:hover {
                     background-color: #b80b0b;
                 }
@@ -59,57 +61,66 @@ nav {
 
         li {
             width: 100%;
+            transform: scale(1);
+            transition: transform 0.25s ease, opacity 0.25s ease;
 
-            a {
-                width: 100%;
+            &:first-child {
+                height: 60px;
+                background: none;
             }
 
-            div{
+            &:not(:first-child):hover {
+                background: linear-gradient(90deg,
+                        rgba(184, 11, 11, 0) 0%,
+                        rgba(184, 11, 11, 0.65) 51%,
+                        rgba(184, 11, 11, 1) 100%);
+                transform: scale(1.08);
+            }
+
+            .sidebarTop {
+                width: 100%;
+                height: 100%;
                 display: flex;
-                img{
-                    width: 120px;
-                    height: 90px;
+
+                img {
+                    padding: 10px 30px 10px 30px;
+                }
+
+                .sidebarBtn {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0 30px;
+                    background-color: rgba(0, 0, 0, 0);
+                    border: none;
+                    cursor: pointer;
+                    padding: 0;
+                    display: flex;
+                    justify-content: flex-end;
+                    transform: scale(1);
+                    transition: transform 0.25s ease, opacity 0.25s ease;
+
+                    &:hover {
+                        transform: scale(1.08);
+                        opacity: 0.8;
+                    }
+
+                    img {
+                        width: 24px;
+                    }
                 }
             }
         }
     }
-}
 
-.mobileNav {
-    position: relative;
-    overflow: hidden;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 60px;
-
-
-    &:before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image: url('../../../public/navBar/mobileNavbarBg.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        filter: blur(10px);
-        transform: scale(1.4);
-        z-index: 0;
+    @media only screen and (max-width: 800px){
+        .hideOnMobile{
+            display: none;
+        }
     }
 
-    ul {
-        text-transform: uppercase;
-        font-size: xx-large;
-        background: none;
-        z-index: 1;
-
-        li {
-            background: none;
-
-            a {
-                background: none;
-            }
+    @media only screen and (max-width: 400px){
+        .sidebar{
+            width: 100%;
         }
     }
 }
