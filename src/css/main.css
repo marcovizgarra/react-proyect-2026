@@ -4,6 +4,12 @@
   color: white;
   margin: 0;
   padding: 0;
+  font-size: large;
+}
+@media only screen and (max-width: 800px) {
+  * {
+    font-size: x-large;
+  }
 }
 
 body {
@@ -11,6 +17,7 @@ body {
   background-image: url("/gymBg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 nav {
@@ -23,13 +30,19 @@ nav ul {
   justify-content: flex-end;
   align-items: center;
 }
+nav ul .navLogo {
+  width: 120px;
+}
+nav ul .sidebarFooter {
+  margin-top: auto;
+}
 nav ul li {
-  height: 50px;
+  height: 80px;
 }
 nav ul li:first-child {
   margin-right: auto;
 }
-nav ul li:hover {
+nav ul li:hover:not(:first-child) {
   background-color: #b80b0b;
 }
 nav ul li a {
@@ -58,26 +71,37 @@ nav .sidebar {
   height: 100vh;
   width: 250px;
   z-index: 99;
-  background-color: rgba(29, 27, 27, 0.78);
-  backdrop-filter: blur(10px);
-  box-shadow: -10px 0 10px rgba(31, 31, 31, 0.733);
+  background-color: rgba(29, 27, 27, 0.767);
+  backdrop-filter: blur(15px);
+  box-shadow: -10px 0 10px rgb(31, 31, 31);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  overflow: hidden;
+  transform: translateX(100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
 }
 nav .sidebar li {
   width: 100%;
+  height: 60px;
   transform: scale(1);
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 nav .sidebar li:first-child {
-  height: 60px;
-  background: none;
+  height: 75px;
+  padding: 0;
+  background: linear-gradient(90deg, rgba(184, 11, 11, 0) 0%, rgba(184, 11, 11, 0) 51%, rgba(184, 11, 11, 0.158) 100%);
 }
 nav .sidebar li:not(:first-child):hover {
   background: linear-gradient(90deg, rgba(184, 11, 11, 0) 0%, rgba(184, 11, 11, 0.65) 51%, rgb(184, 11, 11) 100%);
   transform: scale(1.08);
+}
+nav .sidebar li:last-child:hover {
+  background: none;
 }
 nav .sidebar li .sidebarTop {
   width: 100%;
@@ -85,7 +109,7 @@ nav .sidebar li .sidebarTop {
   display: flex;
 }
 nav .sidebar li .sidebarTop img {
-  padding: 10px 30px 10px 30px;
+  padding: 20px 30px 15px 30px;
 }
 nav .sidebar li .sidebarTop .sidebarBtn {
   width: 100%;
@@ -107,6 +131,29 @@ nav .sidebar li .sidebarTop .sidebarBtn:hover {
 nav .sidebar li .sidebarTop .sidebarBtn img {
   width: 24px;
 }
+nav .sidebar .sidebarFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  margin-bottom: 100px;
+}
+nav .sidebar .sidebarFooter img {
+  height: 100%;
+  width: auto;
+}
+nav .sidebar--open {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+nav .sidebar--closed {
+  transform: translateX(100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 @media only screen and (max-width: 800px) {
   nav .hideOnMobile {
     display: none;
@@ -114,7 +161,7 @@ nav .sidebar li .sidebarTop .sidebarBtn img {
 }
 @media only screen and (max-width: 400px) {
   nav .sidebar {
-    width: 100%;
+    width: 100vw;
   }
 }
 
