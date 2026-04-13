@@ -2,9 +2,9 @@
 * {
   font-family: "Bebas Neue", sans-serif;
   color: white;
+  font-size: large;
   margin: 0;
   padding: 0;
-  font-size: large;
 }
 @media only screen and (max-width: 800px) {
   * {
@@ -23,29 +23,29 @@ body {
 nav {
   background-color: #1d1b1b;
 }
-nav ul {
+nav .nav__menu {
   width: 100%;
   list-style: none;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-nav ul .navLogo {
+nav .nav__menu .nav__logo {
   width: 120px;
 }
-nav ul .sidebarFooter {
+nav .nav__menu .nav__sidebar-footer {
   margin-top: auto;
 }
-nav ul li {
+nav .nav__menu li {
   height: 80px;
 }
-nav ul li:first-child {
+nav .nav__menu li:first-child {
   margin-right: auto;
 }
-nav ul li:hover:not(:first-child) {
+nav .nav__menu li:hover:not(:first-child) {
   background-color: #b80b0b;
 }
-nav ul li a {
+nav .nav__menu li a {
   height: 100%;
   padding: 0 30px;
   text-decoration: none;
@@ -53,7 +53,7 @@ nav ul li a {
   align-items: center;
   color: white;
 }
-nav ul li .menuBtn {
+nav .nav__menu li .nav__menu-btn {
   width: 100%;
   height: 100%;
   padding: 0 30px;
@@ -61,10 +61,10 @@ nav ul li .menuBtn {
   border: none;
   cursor: pointer;
 }
-nav ul li .menuBtn:hover {
+nav .nav__menu li .nav__menu-btn:hover {
   background-color: #b80b0b;
 }
-nav .sidebar {
+nav .nav__sidebar {
   position: fixed;
   top: 0;
   right: 0;
@@ -85,33 +85,33 @@ nav .sidebar {
   pointer-events: none;
   transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
 }
-nav .sidebar li {
+nav .nav__sidebar li {
   width: 100%;
   height: 60px;
   transform: scale(1);
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
-nav .sidebar li:first-child {
+nav .nav__sidebar li:first-child {
   height: 75px;
   padding: 0;
   background: linear-gradient(90deg, rgba(184, 11, 11, 0) 0%, rgba(184, 11, 11, 0) 51%, rgba(184, 11, 11, 0.158) 100%);
 }
-nav .sidebar li:not(:first-child):hover {
+nav .nav__sidebar li:not(:first-child):hover {
   background: linear-gradient(90deg, rgba(184, 11, 11, 0) 0%, rgba(184, 11, 11, 0.65) 51%, rgb(184, 11, 11) 100%);
   transform: scale(1.08);
 }
-nav .sidebar li:last-child:hover {
+nav .nav__sidebar li:last-child:hover {
   background: none;
 }
-nav .sidebar li .sidebarTop {
+nav .nav__sidebar li .nav__sidebar-top {
   width: 100%;
   height: 100%;
   display: flex;
 }
-nav .sidebar li .sidebarTop img {
+nav .nav__sidebar li .nav__sidebar-top img {
   padding: 20px 30px 15px 30px;
 }
-nav .sidebar li .sidebarTop .sidebarBtn {
+nav .nav__sidebar li .nav__sidebar-top .nav__sidebar-btn {
   width: 100%;
   height: 100%;
   padding: 0 30px;
@@ -124,43 +124,166 @@ nav .sidebar li .sidebarTop .sidebarBtn {
   transform: scale(1);
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
-nav .sidebar li .sidebarTop .sidebarBtn:hover {
+nav .nav__sidebar li .nav__sidebar-top .nav__sidebar-btn:hover {
   transform: scale(1.08);
   opacity: 0.8;
 }
-nav .sidebar li .sidebarTop .sidebarBtn img {
+nav .nav__sidebar li .nav__sidebar-top .nav__sidebar-btn img {
   width: 24px;
 }
-nav .sidebar .sidebarFooter {
+nav .nav__sidebar .nav__sidebar-footer {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 120px;
   margin-bottom: 100px;
 }
-nav .sidebar .sidebarFooter img {
+nav .nav__sidebar .nav__sidebar-footer img {
   height: 100%;
   width: auto;
 }
-nav .sidebar--open {
+nav .nav__sidebar--open {
   transform: translateX(0);
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
-nav .sidebar--closed {
+nav .nav__sidebar--closed {
   transform: translateX(100%);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 @media only screen and (max-width: 800px) {
-  nav .hideOnMobile {
+  nav .hide-on-mobile {
     display: none;
   }
 }
 @media only screen and (max-width: 400px) {
-  nav .sidebar {
+  nav .nav__sidebar {
+    width: 100vw;
+  }
+}
+
+.nav__sidebar {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 99;
+  background-color: rgba(29, 27, 27, 0.767);
+  backdrop-filter: blur(15px);
+  box-shadow: -10px 0 10px rgb(31, 31, 31);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+  transform: translateX(100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.nav__sidebar li {
+  width: 100%;
+  height: 60px;
+  transform: scale(1);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav__sidebar li:first-child {
+  height: 75px;
+  padding: 0;
+  background: linear-gradient(90deg, rgba(184, 11, 11, 0) 0%, rgba(184, 11, 11, 0) 51%, rgba(184, 11, 11, 0.158) 100%);
+}
+
+.nav__sidebar li:not(:first-child):hover {
+  background: linear-gradient(90deg, rgba(184, 11, 11, 0) 0%, rgba(184, 11, 11, 0.65) 51%, rgb(184, 11, 11) 100%);
+  transform: scale(1.08);
+}
+
+.nav__sidebar li:last-child:hover {
+  background: none;
+}
+
+.nav__sidebar a {
+  width: 100%;
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.nav__sidebar-top {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.nav__sidebar-wordmark {
+  padding: 20px 30px 15px 30px;
+}
+
+.nav__sidebar-btn {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transform: scale(1);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav__sidebar-btn:hover {
+  transform: scale(1.08);
+  opacity: 0.8;
+}
+
+.nav__sidebar-btn img {
+  width: 24px;
+}
+
+.nav__sidebar-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  margin-top: auto;
+  margin-bottom: 100px;
+}
+
+.nav__sidebar-footer img {
+  height: 100%;
+  width: auto;
+}
+
+.nav__sidebar--open {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.nav__sidebar--closed {
+  transform: translateX(100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 400px) {
+  .nav__sidebar {
     width: 100vw;
   }
 }

@@ -1,0 +1,143 @@
+.nav__sidebar {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 99;
+
+    background-color: rgba(29, 27, 27, 0.767);
+    backdrop-filter: blur(15px);
+    box-shadow: -10px 0 10px rgb(31, 31, 31);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    overflow: hidden;
+
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.nav__sidebar li {
+    width: 100%;
+    height: 60px;
+    transform: scale(1);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav__sidebar li:first-child {
+    height: 75px;
+    padding: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(184, 11, 11, 0) 0%,
+        rgba(184, 11, 11, 0) 51%,
+        rgba(184, 11, 11, 0.158) 100%
+    );
+}
+
+.nav__sidebar li:not(:first-child):hover {
+    background: linear-gradient(
+        90deg,
+        rgba(184, 11, 11, 0) 0%,
+        rgba(184, 11, 11, 0.65) 51%,
+        rgba(184, 11, 11, 1) 100%
+    );
+    transform: scale(1.08);
+}
+
+.nav__sidebar li:last-child:hover {
+    background: none;
+}
+
+.nav__sidebar a {
+    width: 100%;
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.nav__sidebar-top {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.nav__sidebar-wordmark {
+    padding: 20px 30px 15px 30px;
+}
+
+.nav__sidebar-btn {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    transform: scale(1);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav__sidebar-btn:hover {
+    transform: scale(1.08);
+    opacity: 0.8;
+}
+
+.nav__sidebar-btn img {
+    width: 24px;
+}
+
+.nav__sidebar-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    margin-top: auto;
+    margin-bottom: 100px;
+}
+
+.nav__sidebar-footer img {
+    height: 100%;
+    width: auto;
+}
+
+.nav__sidebar--open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.nav__sidebar--closed {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 400px) {
+    .nav__sidebar {
+        width: 100vw;
+    }
+}
